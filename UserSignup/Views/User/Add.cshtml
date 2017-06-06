@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+
+<form method="post" asp-controller="User" asp-action="Add">
+    <label>User Name<input name="Username" type="text" value="@ViewBag.userName" /></br>
+    <label>Password<input name="Password" type="text" /></br>
+    <label>Verify<input name="verify" type="text" /></br>
+    @if (!String.IsNullOrEmpty(ViewBag.error))
+    {
+        <div class="error-box">@ViewBag.error</div>
+    }
+    <label>Email<input name="Email" type="text"  value="@ViewBag.email"/></br>
+    <input type="submit" value="Sign Up">
+</form>
