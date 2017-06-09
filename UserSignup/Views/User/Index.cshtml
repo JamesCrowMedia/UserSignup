@@ -4,6 +4,42 @@
 @{
 }
 
-@if (!String.IsNullOrEmpty(ViewBag.userId)){ 
-    <h1>User Id: @ViewBag.userId</h1>
-}
+@using UserSignup.Models
+@model List<User>
+
+<table class="table table-responsive table-striped col-xs-12">
+    <tr>
+        <th class="col-xs-2">
+            User ID
+        </th>
+        <th class="col-xs-3">
+            Username
+        </th>
+        <th class="col-xs-4">
+            Email
+        </th>
+        <th class="col-xs-3">
+            Created
+        </th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>
+                @user.UserId
+            </td>
+            <td>
+                <a
+                   asp-controller="User" 
+                   asp-action="Detail" 
+                   asp-route-id="@user.UserId">@user.Username</a>
+            </td>
+            <td>
+                @user.Email
+            </td>
+            <td>
+                @user.Created.ToString()
+            </td>
+        </tr>
+    }
+</table>

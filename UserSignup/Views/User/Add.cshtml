@@ -5,14 +5,32 @@
     
 }
 
+@model UserSignup.ViewModels.AddUserViewModel
+
+<h1>Add User</h1>
+<div asp-validation-for="Username"></div>
 <form method="post" asp-controller="User" asp-action="Add">
-    <label>User Name<input name="Username" type="text" value="@ViewBag.userName" /></br>
-    <label>Password<input name="Password" type="text" /></br>
-    <label>Verify<input name="verify" type="text" /></br>
-    @if (!String.IsNullOrEmpty(ViewBag.error))
-    {
-        <div class="error-box">@ViewBag.error</div>
-    }
-    <label>Email<input name="Email" type="text"  value="@ViewBag.email"/></br>
-    <input type="submit" value="Sign Up">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input class="form-control" asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Verify"></label>
+        <input class="form-control" asp-for="Verify" />
+        <span asp-validation-for="Verify"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <input type="submit" value="Sign Up" />
 </form>
